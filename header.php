@@ -5,7 +5,8 @@
 <body>
 	<div id="centrado">
 		<img src="logo.jpg">
-	<font id="texto" size=10>IVENTARIO LEGOS</font>
+	<font id="texto2" size=6>INVENTARIO</font>
+	<div id="lego"><img width="300px" src="lego.png"></div>
 	</div>
 	<div id="nav">
 		<ul id="l">

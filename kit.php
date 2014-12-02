@@ -13,7 +13,6 @@
 <div id="magia">
 	<div id = "agregar">
 			 <form action="procesar_kit.php?in=agrega" method="POST">
-				
 				<table>
 					<tr>
 						<td>Codigo:	<input type="text" name="codigo"></td>
@@ -35,6 +34,7 @@
 	  <tr class="thead">
 	    <td>C&oacute;digo</td>
 	    <td>Nombre</td>
+	    <td> </td>
 	  </tr>
 	<?php 
 
@@ -55,6 +55,7 @@
 			echo "<tr>
 	    			<td>".$row[$i]['codigo']."</td>
 	    			<td>".$row[$i]['nombre']."</td>
+	  				<td> <a href='llenar.php?cod=".$row[$i]['codigo']."'>llenar</a> </td>
 	  			</tr>";
 		}
 

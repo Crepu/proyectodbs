@@ -41,7 +41,18 @@ require "funciones.php";
 
 	if($_GET['in'] == "confirma")
 	{
+		print_r($_SESSION);
+		print_r($_POST);
+		foreach ($_SESSION['inventariado'] as $key => $value) {
+			$resUp = update_Invetario($value,$_POST['usuario']);
+			$r = pg_fetch_all($resUp);
+			$resDe = del_Usuario($value);
+			# code...
+		}
 
+		$_SESSION["mensaje"] = "Usuario(s) eliminado(s) exitosamente";
+		header('Location: usuarios.php');
+		die();
 	}
 	if($_GET['in'] == "agrega")
 	{

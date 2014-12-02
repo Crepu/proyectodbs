@@ -10,7 +10,7 @@ function get_persona_invt_fecha()//personas que inventariaron en la fecha
 function get_piezas_perdidas()//piezas que se perdieron en las cajas
 {
 	global $conn;
-	return pg_query($conn,"select caja.codigo as cacod,pieza.codigo as pcod from pieza, pieza_tipo_kit, detalle_pieza_caja,caja where pieza.codigo=pieza_tipo_kit.cod_pieza and pieza.codigo=detalle_pieza_caja.cod_pieza and pieza_tipo_kit.cantidad!=detalle_pieza_caja.cantidad and caja.codigo=detalle_pieza_caja.cod_caja;");
+	return pg_query($conn,"select caja.codigo,pieza.codigo from pieza, pieza_tipo_kit, detalle_pieza_caja,caja where pieza.codigo=pieza_tipo_kit.cod_pieza and pieza.codigo=detalle_pieza_caja.cod_pieza and pieza_tipo_kit.cantidad!=detalle_pieza_caja.cantidad and caja.codigo=detalle_pieza_caja.cod_caja;");
 }
 function get_cajas_incompletas()//cajas incompletas
 {

@@ -12,6 +12,14 @@
 	width: 375px;
 }
 
+#texto2
+{
+	float: right;
+	margin: 40px 0px 0px 0px;
+	display: inline;
+	width: 315px;
+}
+
 #nav
 {
 	width: 800px;
@@ -72,7 +80,6 @@
   width: 468px;
   padding: 15px;
   float: left;
-
   border: 1px solid black;
 }
 .lista
@@ -84,7 +91,7 @@
 
 #listap
 {
-	width: 280px;
+	width: 100%;
 	margin-right: 10px;
 	margin-left: 10px;
 	float: left;
@@ -93,4 +100,37 @@
 {
 	width: 240px;
 	padding: 6px;
+}
+.caha
+{
+	width: 180px;
+	height: 100px; 
+	margin-left: 20px;
+	margin-bottom: 2px;
+	padding: 10px;
+	float: left;
+	border: 1px solid #000;
+}
+
+a:link {
+    color: #000000;
+}
+
+/* visited link */
+a:visited {
+    color: #000000;
+}
+
+.text{
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+#lego{
+	float: right;
+	width: 200px;
+	margin-top: -100px;
+	margin-right: 155px;
 }

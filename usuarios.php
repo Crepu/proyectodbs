@@ -56,7 +56,7 @@
 	    <td>Check</td>
 	  </tr>
 	<?php 
-
+		
 		if(isset($mensaje)) echo "<p id='error'>$mensaje</p>";
 
 		$res = get_Usuarios();
