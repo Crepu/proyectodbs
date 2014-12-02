@@ -1,9 +1,9 @@
 <?php
 
-function get_persona_invt_fecha($current_date)//personas que inventariaron en la fecha
+function get_persona_invt_fecha()//personas que inventariaron en la fecha
 {
 	global $conn;
-	return pg_query($conn,"select usuario.nombre from usuario, inventario where usuario.nromiembro=inventario.nro_miembro and inventario.fecha=$current_date;");
+	return pg_query($conn,"select usuario.nombre from usuario, inventario where usuario.nromiembro=inventario.nro_miembro and inventario.fecha=current_date;");
 }
 
 

@@ -9,6 +9,12 @@ function get_Usuarios()
 						where usuario.cod_carrera = carrera.codigo;");
 }
 
+function get_Usuarios_byID($users)
+{
+	global $conn;
+	return pg_query($conn,"select nombre, apellido, nromiembro from usuario where nromiembro = $users;");
+}
+
 function get_Piezas()
 {
 	global $conn;
@@ -36,7 +42,7 @@ function check_Inventario_User($id)
 function delete_User_byID($id)
 {
 	global $conn;
-	return pg_query($conn,"delete from usuario where nro_miembro = $id");
+	return pg_query($conn,"delete from usuario where nromiembro = $id");
 }
 
 function add_Usuario($nromiembro, $nombre, $apellido, $direccion, $carrera)
@@ -47,11 +53,25 @@ function add_Usuario($nromiembro, $nombre, $apellido, $direccion, $carrera)
 
 }
 
+function add_Pieza($codigo, $color,$descripcion)
+{
+	global $conn;
+	return pg_query($conn, "insert into pieza 
+							values($codigo,'$color', '$descripcion');");
+
+}
 function check_Usuario($id)
 {
 	global $conn;
 	return pg_query("select * from usuario where nromiembro = $id");
 }
+
+function check_Pieza($id)
+{
+	global $conn;
+	return pg_query("select * from pieza where codigo = $id");
+}
+
 
 
 

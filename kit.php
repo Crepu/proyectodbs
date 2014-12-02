@@ -1,20 +1,40 @@
 <?php
-
+	session_start();
 	require "header.php";
 	require "conect.php";
 	require "funciones.php";
 
 	if(!$conn)
 	{
-		$mensaje = "Error al conectarse a la base de datos";
+		$_SESSION['mensaje']= "Error al conectarse a la base de datos";
 	}	
 ?>
+
+<div id="magia">
+	<div id = "agregar">
+			 <form action="procesar_kit.php?in=agrega" method="POST">
+				
+				<table>
+					<tr>
+						<td>Codigo:	<input type="text" name="codigo"></td>
+						<td>Nombre: <input type="text" name="nombre"></td>
+					</tr>					
+				</table>
+				<input type="submit" value="Agregar">
+			</form> 
+			<?php if(isset($_SESSION['mensaje'])) 
+				echo "<p style='background-color: red;''>$_SESSION[mensaje]</p>";
+				unset ($_SESSION['mensaje']);
+			?>
+	</div>
+</div>
+
+
 <div id="magia">
 	 <table style="width:100%">
 	  <tr class="thead">
 	    <td>C&oacute;digo</td>
 	    <td>Nombre</td>
-	    <td>Check</td>
 	  </tr>
 	<?php 
 
@@ -35,7 +55,6 @@
 			echo "<tr>
 	    			<td>".$row[$i]['codigo']."</td>
 	    			<td>".$row[$i]['nombre']."</td>
-	    			<td><input type='checkbox' name='vehicle' value=".$row[$i]['codigo']."></td>
 	  			</tr>";
 		}
 

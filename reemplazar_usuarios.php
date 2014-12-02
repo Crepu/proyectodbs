@@ -11,20 +11,34 @@
 ?>
 <div id="magia">
 		<div id = "agregar">
-		 <form action="procesar_usuario.php?in=agrega" method="POST">
-		<table>
-			<tr>
-				<td>Nombre:	<input type="text" name="nombre"></td>
-				<td>Apellido: <input type="text" name="apellido"></td>
+		<p>El o los siguiente(s) usuarios no pueden ser eliminados porque tienen invetarios hechos.</p>
+		 <form action="procesar_usuario.php?in=confirma" method="POST">
+		<table style="width:100%">
+			<tr class="thead">
+				<td>Nombre</td>
+				<td>Apellido</td>
+				<td>C&oacute;digo</td>
 			</tr>
-			<tr>
-				<td>N. miembro: <input type="text" name="nromiembro"></td>
-				<td>Direcci&oacute;n: <input type="text" name="direccion"></td>
-			</tr>
+		<?php
+			foreach ($_SESSION['inventariado'] as $key => $value) {
+				# code...
+				$res = get_Usuarios_byID($value);
+				$row = pg_fetch_row($res);
+				$string = "<tr>";
+				for ($i=0; $i < sizeof($row); $i++) { 
+					# code...s
+					$string = $string."<td>$row[$i]</td>";
+				}
+				$string = $string."</tr>";
+				echo $string;
+			}
+		?>
 		</table>
-		Carrera:  <select name="carrera">
+		</br>
+		<p>¿C&oacute;mo desea proceder?</p>
+		Asignar inventarios al siguiente usuario: <select name="usuario">
 		<?php 
-			$res = get_Carreras();
+			$res = get_Usuarios();
 
 			if($res == NULL)
 			{
